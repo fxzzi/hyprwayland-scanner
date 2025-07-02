@@ -10,7 +10,10 @@
 stdenv.mkDerivation {
   pname = "hyprwayland-scanner";
   inherit version doCheck;
-  src = ../.;
+  src = builtins.path {
+    path = ../.;
+    name = "source";
+  };
 
   nativeBuildInputs = [
     cmake
